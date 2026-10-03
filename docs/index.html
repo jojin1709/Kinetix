@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetix — Autonomous Local AI Video Studio | Developed by JOJIN JOHN</title>
+  <meta name="description" content="Generate cinematic AI videos from text prompts entirely on your own GPU. 100% private, offline, with zero subscriptions. Developed by JOJIN JOHN.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Ambient Light Orbs -->
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- Interactive Particle Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8V4z"/></svg>
+        </div>
+        <span class="brand-text">KINETIX</span>
+        <span class="creator-tag">by JOJIN JOHN</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#showcase" class="nav-link">Live Demos</a></li>
+        <li><a href="#tour" class="nav-link">Studio UI</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#comparison" class="nav-link">Benchmarks</a></li>
+        <li><a href="#quickstart" class="nav-link">Quickstart</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://github.com/jojin1709/Kinetix" target="_blank" class="btn-github">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>Star</span>
+          <span class="star-badge">v1.0.0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <span>⚡ 100% Offline AI Video Studio · 4GB VRAM Compatible</span>
+      </div>
+
+      <h1 class="hero-title">
+        Bring Words to Motion<br>
+        <span class="gradient-text">On Your Own GPU</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Kinetix is an autonomous local text-to-video AI studio powered by AnimateDiff and Stable Diffusion. Zero subscriptions, zero cloud tokens, 100% privacy on consumer hardware.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#quickstart" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span>Get Started Free</span>
+        </a>
+        <a href="https://github.com/jojin1709/Kinetix" target="_blank" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>View Source on GitHub</span>
+        </a>
+      </div>
+
+      <!-- Hero Interactive Media Card -->
+      <div class="hero-showcase">
+        <div class="showcase-header">
+          <div class="window-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <div class="showcase-prompt-pill">
+            prompt: "Cinematic mineral macro video with raw gold veins and crystalline facets"
+          </div>
+          <div style="font-size: 0.75rem; color: #27c93f; font-family: var(--font-mono); font-weight: 600;">
+            ● 16 Frames · RTX 3050 (4GB)
+          </div>
+        </div>
+        <div class="showcase-media-wrap">
+          <img src="assets/demo_cinematic_gold.gif" alt="Real Local AI Video Generation Demo" class="showcase-img">
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <div class="metric-val">$0<span>/mo</span></div>
+          <div class="metric-label">100% Free Forever</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">4.0<span>GB</span></div>
+          <div class="metric-label">VRAM Requirement</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">16<span>x</span></div>
+          <div class="metric-label">Parallel Downloader Streams</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">0<span>%</span></div>
+          <div class="metric-label">Cloud Data Exposure</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Studio Tour -->
+  <section class="section" id="tour">
+    <div class="container">
+      <span class="section-tag">Interactive Tour</span>
+      <h2 class="section-title">Designed for Fast Local Creation</h2>
+      <p class="section-desc">
+        A dark, distraction-free glassmorphic studio interface built with Next.js 14 and FastAPI.
+      </p>
+
+      <div class="tour-tabs">
+        <button class="tour-tab-btn active" data-tab="pane-studio">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Studio Workspace</span>
+        </button>
+        <button class="tour-tab-btn" data-tab="pane-library">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+          <span>Clip Library & History</span>
+        </button>
+        <button class="tour-tab-btn" data-tab="pane-models">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          <span>Model Manager</span>
+        </button>
+      </div>
+
+      <div class="tour-view-container">
+        <!-- Pane 1: Studio -->
+        <div class="tour-pane active" id="pane-studio">
+          <img src="assets/kinetix_studio_ui.png" alt="Kinetix Studio UI" class="tour-image">
+          <div class="tour-details">
+            <div>
+              <h4>Real-Time Studio Generation Workspace</h4>
+              <p>Prompt bar with cinematic style tags, negative prompt support, randomized seed lock, step slider, and live GPU/VRAM hardware telemetry.</p>
+            </div>
+            <span class="creator-tag">Hardware Telemetry: RTX 3050 Laptop</span>
+          </div>
+        </div>
+
+        <!-- Pane 2: Library -->
+        <div class="tour-pane" id="pane-library">
+          <img src="assets/kinetix_library_ui.png" alt="Kinetix Library UI" class="tour-image">
+          <div class="tour-details">
+            <div>
+              <h4>Local Clip Library & Gallery</h4>
+              <p>Browse all past generations, preview animated thumbnails, check resolution badges, and play clips with zero latency.</p>
+            </div>
+            <span class="creator-tag">Stored Locally in backend/outputs/</span>
+          </div>
+        </div>
+
+        <!-- Pane 3: Models -->
+        <div class="tour-pane" id="pane-models">
+          <img src="assets/kinetix_models_ui.png" alt="Kinetix Models UI" class="tour-image">
+          <div class="tour-details">
+            <div>
+              <h4>Local Model Pipeline Manager</h4>
+              <p>Inspect active diffusion pipelines, verify disk footprint, monitor VRAM thresholds, and manage cached weights.</p>
+            </div>
+            <span class="creator-tag">Offline Storage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Gallery -->
+  <section class="section" id="showcase">
+    <div class="container">
+      <span class="section-tag">Prompt Showcase</span>
+      <h2 class="section-title">What You Can Create with Kinetix</h2>
+      <p class="section-desc">
+        Explore visual prompts optimized for AnimateDiff and Stable Diffusion on consumer GPUs.
+      </p>
+
+      <div class="showcase-grid">
+        <!-- Card 1 -->
+        <div class="showcase-card">
+          <div class="card-img-wrap">
+            <span class="card-tag">Nature & Drone</span>
+            <img src="assets/demo_ocean_waves.jpg" alt="Ocean Sunset Drone Demo">
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Cinematic drone aerial shot of turquoise ocean waves violently crashing into dramatic golden cliffs during sunset, hyper-detailed movie still"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>512×512</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Cinematic drone aerial shot of turquoise ocean waves violently crashing into dramatic golden cliffs during sunset, hyper-detailed movie still">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="showcase-card">
+          <div class="card-img-wrap">
+            <span class="card-tag">Action & Cyberpunk</span>
+            <img src="assets/demo_cyberpunk_runner.jpg" alt="Cyberpunk Action Runner Demo">
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Cinematic action shot of a cyberpunk character running in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.0</span> • <span>512×512</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Cinematic action shot of a cyberpunk character running in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="showcase-card">
+          <div class="card-img-wrap">
+            <span class="card-tag">Sci-Fi & Cosmos</span>
+            <img src="assets/demo_sci_fi_ship.jpg" alt="Sci-Fi Starship Nebula Demo">
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Sleek futuristic spacecraft flying fast into a luminous cosmic nebula with vibrant purple and magenta interstellar dust, stars, cinematic lens flare"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>22 STEPS</span> • <span>CFG 8.0</span> • <span>512×512</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Sleek futuristic spacecraft flying fast into a luminous cosmic nebula with vibrant purple and magenta interstellar dust, stars, cinematic lens flare">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture & 4GB Optimization -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <span class="section-tag">Engineering</span>
+      <h2 class="section-title">The 4GB VRAM Optimization Engine</h2>
+      <p class="section-desc">
+        How Kinetix runs full 3D temporal video diffusion without overflowing consumer GPU memory.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          </div>
+          <h3>Micro-Chunked VAE Decoding</h3>
+          <p>Decodes video latents one frame at a time (<code>decode_chunk_size=1</code>) instead of batching all 16 frames simultaneously, dropping memory usage from ~1,200MB down to ~80MB.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <h3>Model CPU Offloading</h3>
+          <p>Dynamically stages neural weights between 16GB system RAM and 4GB GPU VRAM during pipeline execution, keeping active tensors safely within limits.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 11h5V5H4v6zm0 7h5v-5H4v5zm6 0h5v-5h-5v5zm6 0h5v-5h-5v5zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z"/></svg>
+          </div>
+          <h3>VAE Slicing & Tiling</h3>
+          <p>Enables spatial tiling for the AutoencoderKL decoder, partitioning high-dimensional convolution operations into micro-tiles to eliminate memory spikes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          </div>
+          <h3>16-Stream Fast Downloader</h3>
+          <p>Dedicated Python script leveraging 16 parallel connections to download the full ~3.7GB model weights from Hugging Face in ~10–12 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="section" id="comparison">
+    <div class="container">
+      <span class="section-tag">Comparison</span>
+      <h2 class="section-title">Local Freedom vs Cloud Subscriptions</h2>
+      <p class="section-desc">
+        Why running AI models on your own GPU is the superior choice for developers and creators.
+      </p>
+
+      <div class="comparison-card">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature / Metric</th>
+              <th class="highlight">⚡ Kinetix (Local Studio)</th>
+              <th>Commercial Cloud Video APIs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Monthly Subscription</strong></td>
+              <td class="highlight"><span class="status-badge-ok">✓ $0 (Free Forever)</span></td>
+              <td><span class="status-badge-no">✕ $20 - $60 / month</span></td>
+            </tr>
+            <tr>
+              <td><strong>Data Privacy</strong></td>
+              <td class="highlight"><span class="status-badge-ok">✓ 100% On-Device (0 Cloud Calls)</span></td>
+              <td><span class="status-badge-no">✕ Prompts sent to third-party servers</span></td>
+            </tr>
+            <tr>
+              <td><strong>Generation Limit</strong></td>
+              <td class="highlight"><span class="status-badge-ok">✓ Unlimited Videos</span></td>
+              <td><span class="status-badge-no">✕ Metered credits & tokens</span></td>
+            </tr>
+            <tr>
+              <td><strong>Offline Capability</strong></td>
+              <td class="highlight"><span class="status-badge-ok">✓ Works completely without Internet</span></td>
+              <td><span class="status-badge-no">✕ Requires active internet connection</span></td>
+            </tr>
+            <tr>
+              <td><strong>Hardware Optimization</strong></td>
+              <td class="highlight"><span class="status-badge-ok">✓ Runs on consumer 4GB VRAM GPUs</span></td>
+              <td>Runs on expensive server clusters</td>
+            </tr>
+            <tr>
+              <td><strong>Licensing & Source</strong></td>
+              <td class="highlight"><span class="status-badge-ok">✓ 100% Open-Source (MIT)</span></td>
+              <td><span class="status-badge-no">✕ Proprietary black-box</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quickstart Terminal -->
+  <section class="section" id="quickstart">
+    <div class="container">
+      <span class="section-tag">Get Started</span>
+      <h2 class="section-title">Launch Kinetix in Minutes</h2>
+      <p class="section-desc">
+        Clone the repository and run the 1-click launcher on Windows, or start via CLI.
+      </p>
+
+      <div class="terminal-card">
+        <div class="terminal-header">
+          <div class="window-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <div class="terminal-title">powershell / bash</div>
+          <div style="font-size: 0.75rem; color: var(--text-dim); font-family: var(--font-mono);">setup</div>
+        </div>
+
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <div>
+              <span class="terminal-comment"># 1. Clone the repository</span><br>
+              <span class="terminal-code">git clone https://github.com/jojin1709/Kinetix.git</span>
+            </div>
+            <button class="btn-code-copy" data-code="git clone https://github.com/jojin1709/Kinetix.git">📋</button>
+          </div>
+
+          <div class="terminal-line">
+            <div>
+              <span class="terminal-comment"># 2. Enter folder and download model weights (fast 16 streams)</span><br>
+              <span class="terminal-code">cd Kinetix/backend && python download_models.py</span>
+            </div>
+            <button class="btn-code-copy" data-code="cd Kinetix/backend && python download_models.py">📋</button>
+          </div>
+
+          <div class="terminal-line">
+            <div>
+              <span class="terminal-comment"># 3. Launch everything with 1-click (Windows)</span><br>
+              <span class="terminal-code">.\start_kinetix.bat</span>
+            </div>
+            <button class="btn-code-copy" data-code=".\start_kinetix.bat">📋</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creator Spotlight -->
+      <div class="creator-card">
+        <div class="creator-avatar">JJ</div>
+        <h3>Developed by JOJIN JOHN</h3>
+        <p>Software Engineer & AI Enthusiast passionate about democratizing generative AI on consumer hardware.</p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://github.com/jojin1709" target="_blank" class="btn-secondary" style="padding: 10px 20px; font-size: 0.88rem;">
+            <span>GitHub Profile</span>
+          </a>
+          <a href="https://github.com/jojin1709/Kinetix" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 0.88rem;">
+            <span>Star Kinetix on GitHub ⭐</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-weight: 800; color: #fff; letter-spacing: 0.05em;">KINETIX</span>
+        <span>· Released under MIT License · Developed by JOJIN JOHN</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/jojin1709/Kinetix" target="_blank">Repository</a>
+        <a href="https://github.com/jojin1709/Kinetix/releases" target="_blank">Releases</a>
+        <a href="https://github.com/jojin1709/Kinetix/issues" target="_blank">Issues</a>
+        <a href="https://github.com/jojin1709" target="_blank">Creator</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
