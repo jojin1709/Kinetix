@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+outputs/*.mp4
+thumbnails/*.jpg
+vydea.db
+hf_cache/

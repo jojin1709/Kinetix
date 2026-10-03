@@ -1,0 +1,74 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+backend/venv/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env.local
+
+# Large Model Weights & Machine Learning Artifacts
+/backend/models/
+/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.aria2
+*.whl
+*.exe
+
+# Generation Outputs & Media Cache
+backend/outputs/
+backend/thumbnails/
+outputs/
+thumbnails/
+*.mp4
+*.avi
+*.mov
+*.gif
+
+# SQLite Database
+backend/app/kinetix.db
+backend/app/vydea.db
+*.db
+*.sqlite3
+
+# Node.js & Next.js
+frontend/node_modules/
+node_modules/
+frontend/.next/
+.next/
+frontend/out/
+out/
+.pnp
+.pnp.js
+
+# Testing & Coverage
+coverage/
+*.lcov
+.nyc_output
+
+# IDE & OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
