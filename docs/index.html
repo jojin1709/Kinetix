@@ -92,8 +92,11 @@
             ● 16 Frames · RTX 3050 (4GB)
           </div>
         </div>
-        <div class="showcase-media-wrap">
-          <img src="assets/demo_cinematic_gold.gif" alt="Real Local AI Video Generation Demo" class="showcase-img">
+        <div class="showcase-media-wrap" style="position: relative; max-height: 520px; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <video autoplay loop muted playsinline class="showcase-img" poster="assets/demo_cinematic_gold_thumb.jpg" style="width: 100%; height: auto; max-height: 520px; object-fit: contain;">
+            <source src="assets/demo_cinematic_gold.mp4" type="video/mp4">
+            <img src="assets/demo_cinematic_gold.gif" alt="Real Local AI Video Generation Demo" class="showcase-img">
+          </video>
         </div>
       </div>
 
@@ -183,67 +186,240 @@
     </div>
   </section>
 
-  <!-- Showcase Gallery -->
+  <!-- Showcase Gallery with Animated Video Demos -->
   <section class="section" id="showcase">
     <div class="container">
-      <span class="section-tag">Prompt Showcase</span>
-      <h2 class="section-title">What You Can Create with Kinetix</h2>
+      <span class="section-tag">Video Showcase</span>
+      <h2 class="section-title">What You Can Generate with Kinetix</h2>
       <p class="section-desc">
-        Explore visual prompts optimized for AnimateDiff and Stable Diffusion on consumer GPUs.
+        Explore 10 animated video demos running on local hardware across cinematic, action, nature, sci-fi, and realism styles.
       </p>
 
+      <!-- Category Filter Pills -->
+      <div class="showcase-filters">
+        <button class="filter-btn active" data-filter="all">All Demos (10)</button>
+        <button class="filter-btn" data-filter="cinematic">Cinematic & Realism</button>
+        <button class="filter-btn" data-filter="scifi">Sci-Fi & Cyberpunk</button>
+        <button class="filter-btn" data-filter="nature">Nature & Wildlife</button>
+        <button class="filter-btn" data-filter="anime">Anime & 3D</button>
+        <button class="filter-btn" data-filter="hardware">RTX 3050 Hardware</button>
+      </div>
+
       <div class="showcase-grid">
-        <!-- Card 1 -->
-        <div class="showcase-card">
-          <div class="card-img-wrap">
-            <span class="card-tag">Nature & Drone</span>
-            <img src="assets/demo_ocean_waves.jpg" alt="Ocean Sunset Drone Demo">
+        <!-- Demo Video 1: Real RTX 3050 Output -->
+        <div class="showcase-card" data-category="hardware cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">RTX 3050 Live Output</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;" poster="assets/demo_cinematic_gold_thumb.jpg">
+              <source src="assets/demo_cinematic_gold.mp4" type="video/mp4">
+              <img src="assets/demo_cinematic_gold.gif" alt="Mineral Gold Demo Video">
+            </video>
           </div>
           <div class="card-content">
-            <p class="card-prompt">"Cinematic drone aerial shot of turquoise ocean waves violently crashing into dramatic golden cliffs during sunset, hyper-detailed movie still"</p>
+            <p class="card-prompt">"Cinematic mineral macro video with raw gold veins and crystalline facets, hyper-detailed studio lighting"</p>
             <div class="card-footer">
               <div class="card-meta">
-                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>512×512</span>
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>LOCAL RTX 3050</span>
               </div>
-              <button class="btn-copy-prompt" data-prompt="Cinematic drone aerial shot of turquoise ocean waves violently crashing into dramatic golden cliffs during sunset, hyper-detailed movie still">
+              <button class="btn-copy-prompt" data-prompt="Cinematic mineral macro video with raw gold veins and crystalline facets, hyper-detailed studio lighting">
                 Copy Prompt
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="showcase-card">
-          <div class="card-img-wrap">
-            <span class="card-tag">Action & Cyberpunk</span>
-            <img src="assets/demo_cyberpunk_runner.jpg" alt="Cyberpunk Action Runner Demo">
-          </div>
-          <div class="card-content">
-            <p class="card-prompt">"Cinematic action shot of a cyberpunk character running in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting"</p>
-            <div class="card-footer">
-              <div class="card-meta">
-                <span>20 STEPS</span> • <span>CFG 7.0</span> • <span>512×512</span>
-              </div>
-              <button class="btn-copy-prompt" data-prompt="Cinematic action shot of a cyberpunk character running in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting">
-                Copy Prompt
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="showcase-card">
-          <div class="card-img-wrap">
+        <!-- Demo Video 2: Astronaut -->
+        <div class="showcase-card" data-category="scifi cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
             <span class="card-tag">Sci-Fi & Cosmos</span>
-            <img src="assets/demo_sci_fi_ship.jpg" alt="Sci-Fi Starship Nebula Demo">
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_astronaut.mp4" type="video/mp4">
+              <img src="assets/demo_astronaut.gif" alt="Astronaut Demo Video">
+            </video>
           </div>
           <div class="card-content">
-            <p class="card-prompt">"Sleek futuristic spacecraft flying fast into a luminous cosmic nebula with vibrant purple and magenta interstellar dust, stars, cinematic lens flare"</p>
+            <p class="card-prompt">"An astronaut exploring a mysterious red extraterrestrial planet surface, volumetric atmospheric lighting, cinematic 8k movie still"</p>
             <div class="card-footer">
               <div class="card-meta">
-                <span>22 STEPS</span> • <span>CFG 8.0</span> • <span>512×512</span>
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>VIDEO LOOP</span>
               </div>
-              <button class="btn-copy-prompt" data-prompt="Sleek futuristic spacecraft flying fast into a luminous cosmic nebula with vibrant purple and magenta interstellar dust, stars, cinematic lens flare">
+              <button class="btn-copy-prompt" data-prompt="An astronaut exploring a mysterious red extraterrestrial planet surface, volumetric atmospheric lighting, cinematic 8k movie still">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 3: Cyberpunk City -->
+        <div class="showcase-card" data-category="scifi cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Cyberpunk Action</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_cyberpunk.mp4" type="video/mp4">
+              <img src="assets/demo_cyberpunk.gif" alt="Cyberpunk Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Cyberpunk character walking in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.0</span> • <span>VIDEO LOOP</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Cyberpunk character walking in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 4: Midnight Fireworks City -->
+        <div class="showcase-card" data-category="cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Nightscape & FX</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_fireworks.mp4" type="video/mp4">
+              <img src="assets/demo_fireworks.gif" alt="Fireworks Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Vibrant fireworks bursting over a metropolitan skyline at night, reflections shimmering across river water, 4k cinematic"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>V3 MOTION</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Vibrant fireworks bursting over a metropolitan skyline at night, reflections shimmering across river water, 4k cinematic">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 5: Ocean Sunset Waves -->
+        <div class="showcase-card" data-category="nature cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Coastal & Ocean</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_sunset.mp4" type="video/mp4">
+              <img src="assets/demo_sunset.gif" alt="Ocean Sunset Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Cinematic sunset over ocean waves, golden hour reflections, foaming surf crashing on shore, photorealistic 8k"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 8.0</span> • <span>V3 MOTION</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Cinematic sunset over ocean waves, golden hour reflections, foaming surf crashing on shore, photorealistic 8k">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 6: Alpine Mountain Vista -->
+        <div class="showcase-card" data-category="nature cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Cinematic Vista</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_mountain_vista.mp4" type="video/mp4">
+              <img src="assets/demo_mountain_vista.gif" alt="Mountain Vista Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Epic high altitude mountain range with rolling cloud mist, cinematic golden sun flare, photorealistic national geographic 8k"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>25 STEPS</span> • <span>CFG 8.0</span> • <span>MOTION-XL</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Epic high altitude mountain range with rolling cloud mist, cinematic golden sun flare, photorealistic national geographic 8k">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 7: Sakura Cherry Blossoms -->
+        <div class="showcase-card" data-category="nature">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Nature & Macro</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_nature.mp4" type="video/mp4">
+              <img src="assets/demo_nature.gif" alt="Nature Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Cinematic nature time-lapse, glowing cherry blossom petals gently floating in spring mountain breeze, golden hour sunlight"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>VIDEO LOOP</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Cinematic nature time-lapse, glowing cherry blossom petals gently floating in spring mountain breeze, golden hour sunlight">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 8: Golden Labrador -->
+        <div class="showcase-card" data-category="nature anime">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Animals & 3D</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_labrador.mp4" type="video/mp4">
+              <img src="assets/demo_labrador.gif" alt="Labrador Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"A happy golden labrador puppy playing in lush sunny garden, dappled sunlight, highres RAW photo, global illumination"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>RCNZ 3D</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="A happy golden labrador puppy playing in lush sunny garden, dappled sunlight, highres RAW photo, global illumination">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 9: Misty Forest Wildlife -->
+        <div class="showcase-card" data-category="nature cinematic">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Wildlife Macro</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_wildlife.mp4" type="video/mp4">
+              <img src="assets/demo_wildlife.gif" alt="Wildlife Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Close-up macro photo of a wild rabbit in misty emerald forest, halation bloom, dramatic atmospheric lighting, 200mm f/1.4"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>REALISTIC VISION</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Close-up macro photo of a wild rabbit in misty emerald forest, halation bloom, dramatic atmospheric lighting, 200mm f/1.4">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Video 10: Anime Action Heroine -->
+        <div class="showcase-card" data-category="anime">
+          <div class="card-img-wrap" style="height: 240px; background: #000;">
+            <span class="card-tag">Anime Animation</span>
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+              <source src="assets/demo_anime_girl.mp4" type="video/mp4">
+              <img src="assets/demo_anime_girl.gif" alt="Anime Action Demo Video">
+            </video>
+          </div>
+          <div class="card-content">
+            <p class="card-prompt">"Anime heroine dynamic action animation, expressive eyes, wind in hair, high production anime movie sequence"</p>
+            <div class="card-footer">
+              <div class="card-meta">
+                <span>20 STEPS</span> • <span>CFG 7.5</span> • <span>TOONYOU</span>
+              </div>
+              <button class="btn-copy-prompt" data-prompt="Anime heroine dynamic action animation, expressive eyes, wind in hair, high production anime movie sequence">
                 Copy Prompt
               </button>
             </div>

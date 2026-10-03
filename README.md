@@ -132,11 +132,16 @@ Resolution: 512 x 512 | Frames: 16 | Steps: 20 | VRAM Used: 3.8 GB
 
 What you can generate with Kinetix:
 
-| Category | Sample Visual | Optimal Parameters |
+| Genre / Category | Animated Generation Demo | Recommended Settings |
 | :--- | :--- | :--- |
-| **Cinematic Drone & Landscapes** | <img src="./assets/demo_ocean_waves.jpg" width="380" alt="Ocean Waves Drone Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cinematic drone aerial shot of turquoise ocean waves crashing into dramatic golden cliffs during sunset, hyper-detailed movie still"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
-| **Sci-Fi & Spaceflight** | <img src="./assets/demo_sci_fi_ship.jpg" width="380" alt="Sci-Fi Starship Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Sleek futuristic spacecraft flying fast into a luminous cosmic nebula with vibrant purple and magenta interstellar dust, stars, cinematic lens flare"` | **Steps:** 22<br/>**CFG:** 8.0<br/>**Res:** 512×512 |
-| **Character Action & Motion** | <img src="./assets/demo_cyberpunk_runner.jpg" width="380" alt="Cyberpunk Runner Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cinematic action shot of a cyberpunk character running in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting"` | **Steps:** 20<br/>**CFG:** 7.0<br/>**Res:** 512×512 |
+| **Sci-Fi & Cosmos** | <img src="./assets/demo_astronaut.gif" width="320" alt="Astronaut Exploration Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"An astronaut exploring a mysterious red extraterrestrial planet surface, volumetric atmospheric lighting, cinematic 8k movie still"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
+| **Cyberpunk Action** | <img src="./assets/demo_cyberpunk.gif" width="320" alt="Cyberpunk City Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cyberpunk character walking in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting"` | **Steps:** 20<br/>**CFG:** 7.0<br/>**Res:** 512×512 |
+| **Nightscape & FX** | <img src="./assets/demo_fireworks.gif" width="320" alt="Fireworks Cityscape Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Vibrant fireworks bursting over a metropolitan skyline at night, reflections shimmering across river water, 4k cinematic"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
+| **Coastal & Sunset** | <img src="./assets/demo_sunset.gif" width="320" alt="Ocean Sunset Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cinematic sunset over ocean waves, golden hour reflections, foaming surf crashing on shore, photorealistic 8k"` | **Steps:** 20<br/>**CFG:** 8.0<br/>**Res:** 512×512 |
+| **Cinematic Mountain Vista** | <img src="./assets/demo_mountain_vista.gif" width="320" alt="Mountain Vista Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Epic high altitude mountain range with rolling cloud mist, cinematic golden sun flare, photorealistic national geographic 8k"` | **Steps:** 25<br/>**CFG:** 8.0<br/>**Res:** 512×512 |
+| **Nature & Sakura** | <img src="./assets/demo_nature.gif" width="320" alt="Sakura Nature Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cinematic nature time-lapse, glowing cherry blossom petals gently floating in spring mountain breeze, golden hour sunlight"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
+| **Animals & 3D** | <img src="./assets/demo_labrador.gif" width="320" alt="Labrador Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"A happy golden labrador puppy playing in lush sunny garden, dappled sunlight, highres RAW photo, global illumination"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
+| **Anime Animation** | <img src="./assets/demo_anime_girl.gif" width="320" alt="Anime Action Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Anime heroine dynamic action animation, expressive eyes, wind in hair, high production anime movie sequence"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
 
 ---
 

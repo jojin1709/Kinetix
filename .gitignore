@@ -40,6 +40,7 @@ thumbnails/
 *.mov
 *.gif
 !assets/**
+!docs/assets/**
 
 # SQLite Database
 backend/app/kinetix.db

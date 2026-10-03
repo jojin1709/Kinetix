@@ -164,3 +164,40 @@ document.querySelectorAll('.tour-image, .showcase-img').forEach(img => {
     });
   });
 });
+
+// Category Filtering for Video Showcase
+const filterButtons = document.querySelectorAll('.filter-btn');
+const showcaseCards = document.querySelectorAll('.showcase-card');
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.getAttribute('data-filter');
+
+    showcaseCards.forEach(card => {
+      const category = card.getAttribute('data-category') || '';
+      if (filter === 'all' || category.includes(filter)) {
+        card.style.display = 'flex';
+        card.style.animation = 'fadeIn 0.35s ease forwards';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Ensure all HTML5 videos play reliably
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('video').forEach(vid => {
+    vid.muted = true;
+    const playPromise = vid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        // Autoplay policy prevented playback, keep poster / gif visible
+        console.warn('Autoplay prevented on video:', vid, err);
+      });
+    }
+  });
+});
