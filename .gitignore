@@ -39,6 +39,7 @@ thumbnails/
 *.avi
 *.mov
 *.gif
+!assets/**
 
 # SQLite Database
 backend/app/kinetix.db

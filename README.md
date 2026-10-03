@@ -22,7 +22,15 @@
 
 ---
 
+<picture>
+  <img src="./assets/kinetix_studio_ui.png" alt="Kinetix Studio Interface by JOJIN JOHN" width="100%" style="border-radius: 8px; border: 1px solid #333;" />
+</picture>
+
+<sub>The Kinetix Studio: full local video generation, real-time GPU/VRAM hardware telemetry, and instant playback.</sub>
+
 </div>
+
+---
 
 ## Table of Contents
 
@@ -30,6 +38,10 @@
 - [What is Kinetix?](#what-is-kinetix)
   - [Why Kinetix Exists](#why-kinetix-exists)
   - [Designed for Consumer GPUs (4GB VRAM)](#designed-for-consumer-gpus-4gb-vram)
+- [📸 Studio Interface & UX](#-studio-interface--ux)
+- [🎬 Generation Showcase & Demos](#-generation-showcase--demos)
+  - [Live Generation Demo](#live-generation-demo)
+  - [Prompt Showcase Gallery](#prompt-showcase-gallery)
 - [Key Capabilities](#key-capabilities)
 - [System Architecture](#system-architecture)
 - [Hardware Requirements](#hardware-requirements)
@@ -50,20 +62,20 @@
 
 ## What is Kinetix?
 
-**Kinetix** is a high-performance, full-stack desktop web application that generates real AI videos locally on your machine. Combining a **FastAPI + PyTorch/Diffusers** backend with a modern **Next.js 14** studio interface, Kinetix transforms plain text prompts into smooth, animated MP4 videos without sending a single byte of your data or prompts to the cloud.
+**Kinetix** is an autonomous, full-stack desktop AI video studio developed by **JOJIN JOHN**. Built with a **FastAPI + PyTorch/Diffusers** backend and a sleek **Next.js 14** frontend, Kinetix generates real, high-frame-rate animated video clips directly on your personal computer.
 
 ### Why Kinetix Exists
 
-Commercial video generation models (Runway, Sora, Kling, Luma) require expensive monthly subscriptions, impose strict generation credits, and expose your creative ideas to third-party servers. 
+Commercial video platforms (Sora, Runway, Kling, Luma) require expensive recurring subscriptions, meter your creations with token limits, and upload your private concepts to external cloud servers.
 
-Kinetix eliminates those barriers:
-* **Zero Subscriptions:** Free forever. No tokens, credits, or paywalls.
-* **100% Privacy:** All prompt processing, diffusion passes, and video encoding happen completely offline on your hardware.
-* **Instant Creative Iteration:** Real-time feedback, seed reproducibility, guidance scale control, and automatic local gallery storage.
+Kinetix solves this:
+* **Zero Cloud Subscriptions:** Free forever. No credits, tokens, or paywalls.
+* **100% Privacy:** Prompt parsing, diffusion passes, and video encoding occur entirely on your local machine.
+* **Tuned for Everyday Laptops:** Runs efficiently on consumer GPUs (including **NVIDIA GeForce RTX 3050 with 4GB VRAM**).
 
 ### Designed for Consumer GPUs (4GB VRAM)
 
-Running 3D video diffusion usually requires datacenter GPUs with 16GB–24GB VRAM. Kinetix incorporates cutting-edge memory optimization techniques:
+3D Spatio-Temporal video diffusion models typically demand enterprise GPUs with 16GB–24GB VRAM. Kinetix makes this accessible on standard gaming laptops:
 * **Micro-Chunked VAE Decoding (`decode_chunk_size=1`):** Decodes video latents frame-by-frame instead of all 16 frames in one batch, preventing out-of-memory crashes on 4GB VRAM.
 * **Model CPU Offloading:** Dynamically swaps modules between system RAM and GPU VRAM during inference.
 * **VAE Slicing & Tiling:** Splits high-dimensional tensor operations into manageable tiles.
@@ -71,16 +83,71 @@ Running 3D video diffusion usually requires datacenter GPUs with 16GB–24GB VRA
 
 ---
 
+## 📸 Studio Interface & UX
+
+Kinetix features a dark-themed, glassmorphic studio interface engineered for professional creative workflows:
+
+### 1. Studio & Real-Time Generation
+The primary workspace includes an intelligent prompt bar, one-click cinematic style presets, negative prompt expansion, seed randomization, step sliders, and live hardware monitoring:
+
+<p align="center">
+  <img src="./assets/kinetix_studio_ui.png" alt="Kinetix Studio Generation Workspace" width="100%" style="border-radius: 6px; border: 1px solid #2d2d2d;" />
+</p>
+
+### 2. Video Gallery & Clip Library
+Browse past generations with instant thumbnail previews, metadata inspect, resolution tags, and direct MP4 downloads:
+
+<p align="center">
+  <img src="./assets/kinetix_library_ui.png" alt="Kinetix Video Library & History" width="100%" style="border-radius: 6px; border: 1px solid #2d2d2d;" />
+</p>
+
+### 3. Local Model Manager
+View downloaded weights on disk, toggle between fast and cinematic diffusion pipelines, and track VRAM footprint:
+
+<p align="center">
+  <img src="./assets/kinetix_models_ui.png" alt="Kinetix Model Manager" width="100%" style="border-radius: 6px; border: 1px solid #2d2d2d;" />
+</p>
+
+---
+
+## 🎬 Generation Showcase & Demos
+
+### Live Generation Demo
+
+Here is a real AI video generated locally on an **NVIDIA GeForce RTX 3050 Laptop GPU (4.0 GB VRAM)** using Kinetix:
+
+<p align="center">
+  <img src="./assets/demo_cinematic_gold.gif" alt="Kinetix AI Video Generation Demo" width="60%" style="border-radius: 8px; border: 1px solid #ff7a00;" />
+</p>
+
+```yaml
+Prompt: "Cinematic mineral macro video with raw gold veins and crystalline facets"
+Model: AnimateDiff v1.5 + SD 1.5 FP16
+Resolution: 512 x 512 | Frames: 16 | Steps: 20 | VRAM Used: 3.8 GB
+```
+
+---
+
+### Prompt Showcase Gallery
+
+What you can generate with Kinetix:
+
+| Category | Sample Visual | Optimal Parameters |
+| :--- | :--- | :--- |
+| **Cinematic Drone & Landscapes** | <img src="./assets/demo_ocean_waves.jpg" width="380" alt="Ocean Waves Drone Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cinematic drone aerial shot of turquoise ocean waves crashing into dramatic golden cliffs during sunset, hyper-detailed movie still"` | **Steps:** 20<br/>**CFG:** 7.5<br/>**Res:** 512×512 |
+| **Sci-Fi & Spaceflight** | <img src="./assets/demo_sci_fi_ship.jpg" width="380" alt="Sci-Fi Starship Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Sleek futuristic spacecraft flying fast into a luminous cosmic nebula with vibrant purple and magenta interstellar dust, stars, cinematic lens flare"` | **Steps:** 22<br/>**CFG:** 8.0<br/>**Res:** 512×512 |
+| **Character Action & Motion** | <img src="./assets/demo_cyberpunk_runner.jpg" width="380" alt="Cyberpunk Runner Demo" style="border-radius: 6px;"/><br/>*Prompt:* `"Cinematic action shot of a cyberpunk character running in rain-slicked city streets with vibrant neon reflections, motion blur, dramatic amber and cyan lighting"` | **Steps:** 20<br/>**CFG:** 7.0<br/>**Res:** 512×512 |
+
+---
+
 ## Key Capabilities
 
 - **Real AI Text-to-Video Diffusion:** Generates coherent, cinematic motion from descriptive prompts using AnimateDiff motion adapters and Stable Diffusion v1.5.
 - **Fast 16-Stream Parallel Downloader:** Built-in multi-connection model downloader (`download_models.py`) fetches weights in ~10–12 minutes instead of hours.
-- **Real-Time Progress Tracking:** Live WebSocket telemetry and REST fallback keep you updated step-by-step with real-time GPU/VRAM telemetry.
-- **Full Studio Interface:**
-  - **Generation Studio:** Prompt input, style presets, negative prompt, seed locking, inference step control, and duration selection.
-  - **Video Library:** History of all past generations with instant playback, resolution badges, and file details.
-  - **Model Manager:** Visual manager displaying active diffusion pipelines, disk footprint, and VRAM requirements.
-  - **Hardware Monitor:** Live GPU usage %, VRAM allocation, temperature, CPU, and RAM metrics.
+- **Micro-Chunked VAE Decoding:** Overcomes the 4GB VRAM bottleneck by decoding frames sequentially (`decode_chunk_size=1`).
+- **Real-Time Step Telemetry:** Live WebSocket telemetry and REST fallback keep you updated step-by-step with real-time GPU/VRAM telemetry.
+- **Hardware Telemetry Monitor:** Live GPU usage %, VRAM allocation, temperature, CPU, and RAM metrics directly on your top bar.
+- **Zero Cloud Dependence:** Works 100% offline once model weights are downloaded.
 
 ---
 
@@ -100,11 +167,11 @@ flowchart TD
     subgraph Memory ["4GB VRAM Optimization Engine"]
         OFFLOAD["CPU Model Offloading"]
         TILES["VAE Tiling & Slicing"]
-        CHUNK["Single-Frame Latent Chunking"]
+        CHUNK["Single-Frame Latent Chunking (decode_chunk_size=1)"]
     end
 
     Engine -.-> Memory
-    VAE -->|"16-Frame Tensor"| ENC["ImageIO / OpenCV Video Encoder"]
+    VAE -->|"16-Frame Tensor"| ENC["ImageIO Video Encoder"]
     ENC --> MP4["Local MP4 Video<br/>(backend/outputs/)"]
     MP4 -->|"Direct Streaming"| UI
 ```
@@ -200,6 +267,14 @@ Open your browser at **[http://localhost:3000](http://localhost:3000)** and star
 
 ```text
 Kinetix/
+├── assets/                 # UI screenshots, animated demos, and showcase graphics
+│   ├── demo_cinematic_gold.gif
+│   ├── kinetix_studio_ui.png
+│   ├── kinetix_library_ui.png
+│   ├── kinetix_models_ui.png
+│   ├── demo_ocean_waves.jpg
+│   ├── demo_cyberpunk_runner.jpg
+│   └── demo_sci_fi_ship.jpg
 ├── backend/
 │   ├── app/
 │   │   ├── core/           # Database & configuration
@@ -276,7 +351,7 @@ GET /api/system
 
 ## Author & Credits
 
-**Developed by [JOJIN JOHN](https://github.com/jojin1709)**  
+**Developed with ❤️ by [JOJIN JOHN](https://github.com/jojin1709)**  
 Software Engineer & AI Enthusiast.
 
 If you find Kinetix helpful, please consider starring ⭐ the repository!
@@ -285,5 +360,5 @@ If you find Kinetix helpful, please consider starring ⭐ the repository!
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).  
 Model weights are subject to the [CreativeML OpenRAIL-M](https://huggingface.co/spaces/CompVis/stable-diffusion-license) license.
